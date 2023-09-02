@@ -1,0 +1,377 @@
+@import "_global.scss";
+
+//-------------Navigation----------
+//------------------------------------------------------->
+nav.nav_navigation {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: $font-size;
+  padding: 5px 0px 5px 0px;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 10px 80px 1fr 10px;
+  grid-template-areas: ". logo ham_menu .";
+  & .navigation_logo {
+    grid-area: logo;
+    padding-top: 5px;
+    height: 33px;
+    width: 33px;
+    & svg {
+      height: 100%;
+      width: 100%;
+      fill: #300a44;
+    }
+  }
+  & .navigation_links_list_con {
+    margin-top: -5px;
+    position: fixed;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: grid;
+    //display: none;
+    grid-template-columns: 1fr 250px;
+
+    //transition: all 3s ease-in-out;
+    &:after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(232, 228, 213);
+      opacity: 0.9;
+      z-index: 11;
+    }
+    & ul.navigation_links_list {
+      position: absolute;
+      z-index: 12;
+      right: 0;
+      width: 0%;
+      height: 100%;
+      background: #fff;
+      box-shadow: rgba(0, 0, 0, 0.9) 0px 1px 7px 0px;
+      justify-items: start;
+      align-items: start;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, 50px) 80px;
+      & li {
+        margin: auto 30px auto 30px;
+        & a {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  & .navigation_ham_menu {
+    position: relative;
+    grid-area: ham_menu;
+    align-self: center;
+    justify-self: end;
+    height: 2px;
+    width: 22px;
+    background: $nav-color;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      background: inherit;
+    }
+    &:before {
+      top: -6px;
+    }
+    &:after {
+      bottom: -6px;
+    }
+  }
+}
+
+ul.navigation_links_list {
+  width: 0%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  & li {
+    align-items: center;
+    height: 100%;
+    margin: auto 30px auto 30px;
+    & a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: $nav-color;
+      text-decoration: none;
+      font-family: $font-family;
+      letter-spacing: 0px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    & a.nav_contact {
+      color: #fff;
+      height: 100%;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  & li a.nav_contact {
+    display: block;
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    padding: 16px 25px 17px;
+    font-size: $font-size;
+    background: $nav-color;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(33, 37, 41, 0.2);
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      background: #1900bc;
+      transition: background 0.3s ease-in-out;
+    }
+  }
+}
+li.closeBtn {
+  position: relative;
+
+  & span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    height: 80%;
+    width: 45px;
+    right: -80%;
+    //background: red;
+    z-index: 13;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 80%;
+      height: 4px;
+      background: #4716ed;
+      z-index: 14;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      //transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+//------------------------------------------------------------------------>
+@media only screen and (min-width: 320px) {
+  nav.nav_navigation {
+    padding: 5px 0px 8px 0px;
+    grid-template-columns: 10px 80px 1fr 10px;
+    grid-template-areas: ". logo ham_menu .";
+    & .navigation_links_list_con {
+      margin-top: -5px;
+      & ul.navigation_links_list {
+        & li {
+          margin: auto 30px auto 30px;
+          & a {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    & .navigation_ham_menu {
+      height: 2px;
+      width: 22px;
+    }
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  nav.nav_navigation {
+    padding: 10px 0px 10px 0px;
+    grid-template-columns: 20px 80px 1fr 20px;
+    //grid-template-columns: 50px 80px 1fr 50px;
+    & .navigation_logo {
+      padding-top: 5px;
+      height: 50px;
+      width: 50px;
+      & svg {
+        height: 100%;
+        width: 100%;
+        fill: #300a44;
+      }
+    }
+    & .navigation_links_list_con {
+      margin-top: -10px;
+      & ul.navigation_links_list {
+        & li {
+          // margin: auto 30px auto 30px;
+          & a {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    & .navigation_ham_menu {
+      height: 4px;
+      width: 33px;
+      &:before {
+        top: -9px;
+      }
+      &:after {
+        bottom: -9px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  nav.nav_navigation {
+    //grid-template-columns: 40px 150px 1fr 40px;
+    grid-template-columns: 20px 150px 1fr 20px;
+    grid-template-rows: auto;
+    grid-template-areas: ". logo links_list .";
+
+    & .navigation_links_list_con {
+      display: block;
+      margin-top: 0;
+      position: relative;
+      grid-area: links_list;
+      justify-self: end;
+      height: auto;
+      width: auto;
+      right: 0 !important;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      transition: none !important;
+
+      &:after {
+        width: 0;
+        height: 0;
+      }
+
+      & ul.navigation_links_list {
+        position: relative;
+        width: 100% !important;
+        right: 0 !important;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        transition: none !important;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: auto;
+        & li.closeBtn {
+          display: none;
+        }
+        & li {
+          margin: 0;
+          & a {
+            font-weight: 700;
+            font-size: 15px;
+          }
+          & a.nav_contact {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    & .navigation_ham_menu {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  nav.nav_navigation {
+    //grid-template-columns: 90px 200px 1fr 550px 1fr 90px;
+    grid-template-rows: auto;
+    //grid-template-areas: ". logo . links_list . .";
+    grid-template-areas: ". logo links_list . ";
+
+    & .navigation_links_list_con {
+      & ul.navigation_links_list {
+        & li a {
+          font-weight: 700;
+          //font-size: calc($font-size + 30px);
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  nav.nav_navigation {
+    border: none;
+    margin: 0 auto;
+    width: 1200px;
+    //grid-template-columns: 1fr 200px 900px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: ". logo links_list .";
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 600%;
+      height: 1px;
+      background: #f5f5f5;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  nav.nav_navigation {
+    width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "logo links_list";
+  }
+}
+
+.showMblMenu {
+  //width: 250px;
+  width: 250px !important;
+  transition: width 0.3s linear !important;
+}
+.showNavCon {
+  right: 0% !important;
+  transition: right 0.1s linear !important;
+}
