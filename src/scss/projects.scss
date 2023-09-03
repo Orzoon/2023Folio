@@ -1,0 +1,296 @@
+@import "_global.scss";
+
+section.projects {
+  @include padding_left_right_s;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: 16px;
+  height: auto;
+  background: #007d60;
+  //background: #e8e4d5;
+  //background: #ff5438;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-row-gap: 30px;
+  min-height: 100vh;
+  & .project_image_con {
+    background: #fff;
+    grid-area: 2/1/3/2;
+    justify-self: start;
+    align-self: center;
+    //width: 275px;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    background: #007d60;
+
+    & .project_image {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      &:after,
+      &:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        left: 0;
+      }
+      &:before {
+        height: 80%;
+        top: 0%;
+        background: linear-gradient(
+          -180deg,
+          rgba(48, 10, 68, 0) 36%,
+          rgba(48, 10, 68, 0.8) 80%,
+          #300a44 100%
+        );
+        z-index: 3;
+      }
+      &:after {
+        bottom: 0%;
+        height: 21%;
+        background: #300a44;
+        z-index: 3;
+      }
+      & img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      & .project_image_text {
+        padding-left: 15px;
+        padding-right: 15px;
+        position: absolute;
+        z-index: 4;
+        height: auto;
+        width: 100%;
+        left: 0px;
+        bottom: 20px;
+        color: #fff;
+        font-size: 1.6em;
+        font-family: $font-family-sansp;
+        text-decoration: underline;
+        //padding-left: 40px;
+        font-weight: 500;
+        word-spacing: 2px;
+        &:hover {
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        & a {
+          color: #fff;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    & .project_image_desc {
+      height: auto;
+      width: 100%;
+      background: #fff;
+      font-size: 1.33rem;
+      padding: 20px 15px;
+
+      & h1 {
+        color: $dark-blue;
+        font-size: 1.33rem;
+        font-family: $font-family-sansp;
+      }
+      & p {
+        font-size: 1.13rem;
+        font-family: $font-family-sansp;
+        color: #54565a;
+      }
+    }
+  }
+  & .project_desc {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow: hidden;
+    grid-area: 1/1/2/2;
+    justify-self: start;
+    align-self: center;
+    font-family: $font-family-sansp;
+    grid-row-gap: $con_title_p_margin_top;
+    & h1 {
+      line-height: 1;
+      color: #fff;
+      font-size: $con_title_h1_m;
+      //font-weight: 600;
+      font-weight: 700;
+    }
+    & p {
+      color: #fff;
+      font-size: $con_p_font_size_sm;
+    }
+  }
+}
+
+//backgrounds and text color
+section.landingImage {
+  background: #ff5438;
+}
+@media only screen and (min-width: 500px) {
+  section.projects {
+    & .project_desc {
+      justify-self: start;
+      align-self: center;
+      & h1 {
+        font-size: $con_title_h1_m;
+        line-height: 1;
+        font-weight: 700;
+      }
+      & p {
+        font-size: $con_p_font_size_m;
+      }
+    }
+  }
+}
+
+//NOTE 640 styles from 768--deleted
+@media only screen and (min-width: 640px) {
+  section.projects {
+    @include padding_left_right_m;
+    & .project_image_con {
+      & .project_image {
+        position: relative;
+        width: 100%;
+        height: 364px;
+        overflow: hidden;
+        & .project_image_text {
+          padding-left: 20px;
+          padding-right: 20px;
+          font-size: 2.2em;
+          font-family: $font-family-sansp;
+        }
+      }
+      & .project_image_desc {
+        padding: 20px 20px;
+        font-size: 1.33rem;
+        & h1 {
+          font-size: 1.33rem;
+        }
+        & p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    & .project_desc {
+      & h1 {
+        font-size: $con_title_h1_lg;
+        line-height: 1;
+        font-weight: 700;
+      }
+      & p {
+        font-size: $con_title_p_lg;
+      }
+    }
+  }
+}
+
+// separation left and right
+@media only screen and (min-width: 900px) {
+  section.projects {
+    height: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    grid-row-gap: 0px;
+    grid-column-gap: 30px;
+    & .project_image_con {
+      grid-area: 1/1/2/2;
+      justify-self: start;
+      align-self: start;
+      overflow: hidden;
+      max-width: none;
+      max-width: 440px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+
+      & .project_image_desc {
+        height: 100% !important;
+        & h1 {
+          font-size: 1.33rem;
+        }
+        & p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    & .project_desc {
+      grid-area: 1/2/2/3;
+      justify-self: start;
+      align-self: start;
+      font-family: $font-family-sansp;
+    }
+  }
+
+  section.p_alignRight {
+    display: grid;
+    grid-template-columns: 1fr auto !important;
+    grid-template-rows: 1fr;
+    grid-row-gap: 0px;
+    grid-column-gap: 30px;
+    & .project_image_con {
+      grid-area: 1/2/2/3 !important;
+    }
+    & .project_desc {
+      grid-area: 1/1/2/2 !important;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  section.projects {
+    @include padding_left_right_l;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    grid-row-gap: 0px;
+    grid-column-gap: 50px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  section.projects {
+    position: relative;
+    width: 1250px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      background: inherit;
+      height: 100%;
+      top: 0px;
+    }
+
+    &::after {
+      left: calc(100% - 1px);
+    }
+
+    &::before {
+      right: calc(100% - 1px);
+    }
+  }
+}

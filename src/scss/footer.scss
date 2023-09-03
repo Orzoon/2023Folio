@@ -1,0 +1,125 @@
+@import "_global.scss";
+section.footer {
+  @include padding_left_right_s;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-row-gap: 20px;
+  grid-template-areas:
+    "ulLists_external"
+    "ulLists"
+    "footerLogo";
+}
+
+section.footer {
+  & ul {
+    margin-top: 0;
+    list-style-type: none;
+    align-self: cetner;
+    & li {
+      height: 30px;
+      & a {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        color: $nav-color;
+        text-decoration: none;
+        font-family: $font-family;
+        letter-spacing: 0px;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+      & a.linkedin {
+        color: #2867b2;
+      }
+      & a.github {
+        color: #333;
+      }
+      & a.codepen {
+        color: #000;
+      }
+    }
+  }
+}
+
+ul.lists {
+  grid-area: ulLists;
+  margin-top: 40px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  width: 100%;
+  height: auto;
+}
+
+ul.lists_external {
+  grid-area: ulLists_external;
+}
+.footerLogo {
+  grid-area: footerLogo;
+  height: 80px;
+
+  & svg {
+    height: 100%;
+    width: auto;
+    fill: #000;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  section.footer {
+    @include padding_left_right_m;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  section.footer {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "footerLogo ulLists_external ulLists";
+  }
+  .footerLogo {
+    & svg {
+      height: auto;
+      width: 100px;
+      fill: #000;
+    }
+  }
+
+  ul.lists_external {
+    grid-area: ulLists_external;
+    justify-self: center;
+  }
+
+  ul.lists {
+    grid-area: ulLists;
+    & li {
+      display: grid;
+      justify-content: end;
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  section.footer {
+    @include padding_left_right_l;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  section.footer {
+    width: 1250px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

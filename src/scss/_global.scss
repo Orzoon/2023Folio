@@ -20,9 +20,17 @@ html {
 }
 body {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   margin: 0;
   //overflow: hidden;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 $font-family-sansp: "Poppins", sans-serif;
@@ -114,4 +122,9 @@ button.video_button {
 @mixin padding_left_right_m {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+@mixin padding_left_right_l {
+  padding-left: 30px;
+  padding-right: 30px;
 }

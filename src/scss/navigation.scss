@@ -338,8 +338,8 @@ li.closeBtn {
   nav.nav_navigation {
     border: none;
     margin: 0 auto;
-    width: 1200px;
-    //grid-template-columns: 1fr 200px 900px 1fr;
+    //width: 1200px;
+    grid-template-columns: 30px 200px 1fr 30px;
     grid-template-rows: auto;
     grid-template-areas: ". logo links_list .";
 

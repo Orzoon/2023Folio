@@ -21,8 +21,16 @@ html {
 
 body {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /*Common Animations */
@@ -72,7 +80,7 @@ section.hero .hero_overlay {
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 1.8fr 1fr;
@@ -83,6 +91,7 @@ section.hero .hero_overlay .hero_text {
   justify-self: start;
   align-self: end;
   display: grid;
+  grid-template-columns: 1fr;
   grid-auto-rows: auto;
   grid-row-gap: 6px;
 }
@@ -125,12 +134,11 @@ section.hero .hero_overlay .hero_button button:hover {
 section.hero .hero_overlay .hero_button button:focus {
   outline: none;
 }
-
 @media only screen and (min-width: 640px) {
   section.hero {
     background: #fff;
     font-size: 16px;
-    height: calc(100vh - 45px);
+    height: calc(100vh - 70px);
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -147,102 +155,148 @@ section.hero .hero_overlay .hero_button button:focus {
     grid-auto-rows: 1.5fr 1fr;
     grid-row-gap: 40px;
   }
+  section.hero .hero_overlay .hero_text {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: "hi hi" "im im" "arjun arjun" "web developer";
+    grid-column-gap: 18px;
+  }
   section.hero .hero_overlay .hero_text .common_hero_text {
     display: flex;
     flex-wrap: wrap;
     gap: 1px;
   }
   section.hero .hero_overlay .hero_text .common_hero_text .h_con h1 {
-    font-size: 44px;
+    font-size: 50px;
     line-height: 1.1;
     overflow-wrap: break-word;
   }
+  section.hero .hero_overlay .hero_text .hi {
+    grid-area: 1/1/2/3;
+  }
+  section.hero .hero_overlay .hero_text .im {
+    grid-area: 2/1/3/3;
+  }
+  section.hero .hero_overlay .hero_text .orzon {
+    grid-area: 3/1/4/3;
+  }
+  section.hero .hero_overlay .hero_text .web {
+    grid-area: web;
+  }
+  section.hero .hero_overlay .hero_text .developer {
+    grid-area: developer;
+  }
 }
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 1200px) {
   section.hero {
-    height: calc(100vh - 70px);
-  }
-}
-@media only screen and (min-width: 900px) {
-  section.head_landing {
+    background: #fff;
     font-size: 16px;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
   }
-  section.head_landing .hero_overlay {
+  section.hero #particles-js {
+    height: 100%;
+    width: 100%;
+  }
+  section.hero .hero_overlay {
+    padding-left: 30px;
+    padding-right: 30px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1.3fr 1fr;
-    grid-template-areas: " head_title head_image" "head_button head_image";
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1.5fr 1fr;
+    grid-row-gap: 40px;
   }
-  section.head_landing .hero_overlay .hero_title {
-    justify-self: start;
-    align-self: end;
-    margin-left: 0px;
+  section.hero .hero_overlay .hero_text {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: "hi hi" "im im" "arjun arjun" "web developer";
+    grid-column-gap: 18px;
   }
-  section.head_landing .hero_overlay .hero_title h1 {
-    font-size: 54px;
-    line-height: 1.3;
+  section.hero .hero_overlay .hero_text .common_hero_text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
   }
-  section.head_landing .hero_overlay .hero_button {
-    margin: 0;
-    grid-area: head_button;
-    justify-self: start;
-    align-self: start;
-    margin-top: 20px;
-    margin-bottom: 5px;
+  section.hero .hero_overlay .hero_text .common_hero_text .h_con h1 {
+    font-size: 50px;
+    line-height: 1.1;
+    overflow-wrap: break-word;
   }
-  section.head_landing .hero_overlay .hero_button button {
-    outline: none;
+  section.hero .hero_overlay .hero_text .hi {
+    grid-area: 1/1/2/3;
+  }
+  section.hero .hero_overlay .hero_text .im {
+    grid-area: 2/1/3/3;
+  }
+  section.hero .hero_overlay .hero_text .orzon {
+    grid-area: 3/1/4/3;
+  }
+  section.hero .hero_overlay .hero_text .web {
+    grid-area: web;
+  }
+  section.hero .hero_overlay .hero_text .developer {
+    grid-area: developer;
   }
 }
-@media only screen and (min-width: 1024px) {
-  section.head_landing .head_overlay {
+@media only screen and (min-width: 1400px) {
+  section.hero {
+    background: #fff;
+    font-size: 16px;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  section.hero .hero_overlay {
+    padding: 0px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1.3fr 1fr;
-    grid-template-areas: " head_title head_image" "head_button head_image";
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1.5fr 1fr;
+    grid-row-gap: 40px;
   }
-  section.head_landing .head_overlay .head_title {
-    grid-area: head_title;
-    margin-left: 0px;
+  section.hero .hero_overlay .hero_text {
+    width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: "hi hi" "im im" "arjun arjun" "web developer";
+    grid-column-gap: 26px;
   }
-  section.head_landing .head_overlay .head_title h1 {
-    font-size: 3.5rem;
+  section.hero .hero_overlay .hero_text .common_hero_text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
   }
-  section.head_landing .head_overlay .head_button {
-    grid-area: head_button;
+  section.hero .hero_overlay .hero_text .common_hero_text .h_con h1 {
+    font-size: 50px;
+    line-height: 1.1;
+    overflow-wrap: break-word;
+    font-size: 56px;
   }
-  section.head_landing .head_overlay .head_image {
-    grid-area: head_image;
-    justify-self: center;
-    align-self: end;
-    animation: head_image_lg 0.8s 1.5s ease-in-out forwards;
-    margin-bottom: 10%;
-    margin-right: 0%;
+  section.hero .hero_overlay .hero_text .hi {
+    grid-area: 1/1/2/3;
   }
-  section.head_landing .head_overlay .head_image .head_image_con {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    width: 460px;
-    animation: head_image_con_lg 1s 2.2s ease-in-out forwards;
+  section.hero .hero_overlay .hero_text .im {
+    grid-area: 2/1/3/3;
   }
-  section.head_landing .head_overlay .head_image .head_image_con img {
-    display: block;
-    width: 100%;
-    height: auto;
-    opacity: 1;
+  section.hero .hero_overlay .hero_text .orzon {
+    grid-area: 3/1/4/3;
   }
-  section.head_landing .head_overlay .head_image .head_image_con:before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  section.hero .hero_overlay .hero_text .web {
+    grid-area: web;
   }
-  section.head_landing .head_overlay .head_image .head_image_con:before {
-    background: linear-gradient(to bottom right, #4716ed, #50e3c2);
-    opacity: 0.2;
-    z-index: 9;
+  section.hero .hero_overlay .hero_text .developer {
+    grid-area: developer;
+  }
+  section.hero .hero_overlay .hero_button {
+    width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
