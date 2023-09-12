@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Arjun Kunwar</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/><script src="https://kit.fontawesome.com/2ba695a310.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="./js/index.js"></script>
     <link rel="stylesheet" href="./css/index.css"/>
   </head>
@@ -25,11 +29,10 @@
       <div class="navigation_links_list_con" id="navContainer">
         <ul class="navigation_links_list" id="navUl">
           <li class="closeBtn"><a id="closeMenu">close menu</a><span id="closeIcon"></span></li>
-          <li class="navList"><a class="navLink" href="#about-me">About me</a></li>
-          <li class="navList"><a class="navLink" href="#skills">Skills</a></li>
-          <li class="navList"><a class="navLink" href="#projects">Projects</a></li>
-          <li class="navList"><a class="navLink" href="#video">Video</a></li>
-          <li class="navList"><a class="nav_contact navLink" href="#contact">Contact</a></li>
+          <li class="navList"><a class="navLink" href="#mainprojects">Projects</a></li>
+          <li class="navList"><a class="navLink" href="#uiux">UI/UX</a></li>
+          <li class="navList"><a class="navLink" href="#webcanvas">Web Canvas</a></li>
+          <li class="navList"><a class="nav_contact navLink" href="mailto:devarjunkunwar@gmail.com">Contact</a></li>
         </ul>
       </div>
       <div class="navigation_ham_menu" id="navMenu"></div>
@@ -119,7 +122,7 @@
           </div>
         </div>
         <div class="hero_button">
-          <button id="button_aboutme">My projects</button>
+          <button id="button_aboutme"> <a href="#mainprojects">My projects</a></button>
         </div>
       </div>
       <div class="hero_circle_wrap"> 
@@ -130,10 +133,10 @@
         </div>
       </div>
     </section>
-    <section class="projects shopCart">
+    <section class="projects shopCart fullContainer" id="mainprojects">
       <div class="project_image_con container">
         <div class="project_image">
-          <div class="project_image_text"><a>Full stack application-Shopcart</a></div><img class="image" src="./assets/shopcart.jpg"/>
+          <div class="project_image_text"><a href="https://projectshopcart.netlify.app/" target="_blank">Full stack application-Shopcart</a></div><img class="image" src="./assets/shopcart.jpg"/>
         </div>
         <div class="project_image_desc"> 
           <h1>Technology used</h1>
@@ -145,10 +148,10 @@
         <p>Fully responsive, custom, Full stack web store application, where you can login, add products to your cart or wishlist, proceed to checkout upon payment and keep track of your shipping status.</p>
       </div>
     </section>
-    <section class="projects p_alignRight landingImage">
+    <section class="projects p_alignRight landingImage fullContainer">
       <div class="project_image_con container">
         <div class="project_image">
-          <div class="project_image_text"><a>Motion UI/UX Gallery website</a></div><img class="image" src="./assets/landing.jpg"/>
+          <div class="project_image_text"><a href="https://photoslanding.netlify.app/" target="_blank">Motion UI/UX Gallery website</a></div><img class="image" src="./assets/landing.jpg"/>
         </div>
         <div class="project_image_desc"> 
           <h1>Technology used</h1>
@@ -160,17 +163,112 @@
         <p>Inspired from one of Awwwards winning websites, I created this gallery website with motion in mind. This website is fully responsive and, with the power of gsap, it is smooth in Animation as well. </p>
       </div>
     </section>
+    <section class="uiux fullContainer" id="uiux">
+      <div class="project_desc content">
+        <h1>UI/UX Projects</h1>
+        <p>Few of mine small custom front-end projects / models, built with HTML, CSS3, JS together with other UI/UX motion libraries.     </p>
+      </div>
+      <div class="swiper_section_container">
+        <button class="s_btn left">
+           <i class="fa-solid fa-arrow-left-long"></i></button>
+        <button class="s_btn right"><i class="fa-solid fa-arrow-right-long"></i></button>
+        <div class="swiper swiper_uiux">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="slider slide1">
+                <div class="slider_image_con"><img class="slider_image" src="./assets/uiux1.jpg"/><a href="https://mblconceptuiux.netlify.app/" target="_blank">Mobile card concept</a></div>
+                <div class="slider_desc_con">
+                  <p>Implementation of Simple mobile card Ui/Ux concept on web.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider slide2">
+                <div class="slider_image_con"><img class="slider_image" src="./assets/uiux2.jpg"/><a href="https://parallexdemo.netlify.app/" target="_blank">Parallex on web</a></div>
+                <div class="slider_desc_con">
+                  <p>Beautiful demonstration of parallex on web, keep scrolling!!.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider slide3">
+                <div class="slider_image_con"><img class="slider_image" src="./assets/uiux3.jpg"/><a href="https://bookslanding.netlify.app/" target="_blank">Landing page</a></div>
+                <div class="slider_desc_con">
+                  <p>Wavey landing page of a bookshop.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider slide4">
+                <div class="slider_image_con"><img class="slider_image" src="./assets/uiux4.jpg"/><a href="https://silver-seahorse-90d275.netlify.app/" target="_blank">Css animation</a></div>
+                <div class="slider_desc_con">
+                  <p>Web art on motion, created with Css only.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="uxui-swiper-scrollbar"></div>
+      </div>
+    </section>
+    <section class="canvas fullContainer" id="webcanvas">
+      <div class="project_desc content">
+        <h1>Canvas Projects</h1>
+        <p>Visualising on web with HTML5 Canvas and javascript.    </p>
+      </div>
+      <div class="swiper_section_container">
+        <button class="canvas_btn canvas_btn_left">
+           <i class="fa-solid fa-arrow-left-long"></i></button>
+        <button class="canvas_btn canvas_btn_right"><i class="fa-solid fa-arrow-right-long"></i></button>
+        <div class="swiper swiper_canvas">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="slider slide1">
+                <div class="slider_image_con"><img class="slider_image" src="./assets/canvasstarfield.jpg"/><a href="https://euphonious-arithmetic-dc7fbf.netlify.app/" target="_blank">Starfield</a></div>
+                <div class="slider_desc_con">
+                  <p>Canvas starfield where you travel the space infinitely!. Change the settings for different effect.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider slide2">
+                <div class="slider_image_con"><img class="slider_image" src="./assets/canvassort.jpg"/><a href="https://algorithmsvisualisation.netlify.app/" target="_blank">Sorting algorithms</a></div>
+                <div class="slider_desc_con">
+                  <p>Visualising few Sorting Algorithms in HTML canvas, such as Bubble sort, Comb sort, Insertion sort, Selection sort.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider slide3">
+                <div class="slider_image_con"><img class="slider_image" src="./assets/canvastextrain.jpg"/><a href="https://textrain.netlify.app/" target="_blank">Text rain</a></div>
+                <div class="slider_desc_con">
+                  <p>Vertical Rain of alphabets and digits that gives the effect of text rain as shown in the movie "The Matrix".  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="canvas-swiper-scrollbar"></div>
+      </div>
+    </section>
+    <section class="linkBtnSection linkBtnSection1 halfContainer"> 
+      <div class="link_btn_Wrapper">
+        <button class="linkBtn_main linkBtn_main1" id="githubButton"><span class="LB_text">Github</span>
+          <!--span.LB_ColorBG-->
+        </button>
+        <div class="LB_Btn_bg"></div>
+      </div>
+    </section>
     <section class="footer">
       <ul class="lists_external">  
         <li><a class="github" href="https://github.com/Orzoon" target="_blank">github</a></li>
-        <li><a class="linkedin" href="https://au.linkedin.com/in/arjun-kunwar" target="_blank">linkedin</a></li>
         <li><a class="codepen" href="https://codepen.io/orzoon" target="blank">codepen</a></li>
       </ul>
       <ul class="lists"> 
-        <li><a href="#skills">skills </a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#video">videos</a></li>
-        <li><a href="#contact">contacts</a></li>
+        <li><a href="#mainprojects">projects</a></li>
+        <li><a href="#uiux">ui/ux</a></li>
+        <li><a href="#webcanvas">web canvas</a></li>
+        <li><a href="mailto:devarjunkunwar@gmail.com">contacts</a></li>
       </ul>
       <div class="footerLogo"><svg class="logoSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79.375 79.375" height="50" width="50">
 <g font-weight="400" letter-spacing="0" word-spacing="0" stroke-width=".265">

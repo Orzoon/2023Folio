@@ -1,0 +1,356 @@
+@import "_global.scss";
+section.uiux {
+  font-family: $font-family-sansp;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto auto;
+  min-height: 100vh;
+  background: #e8e4d5;
+  overflow: hidden !important;
+  align-content: start;
+  grid-row-gap: 30px;
+
+  & .swiper_section_container {
+    @include padding_left_right_s;
+    grid-area: 2/1/3/2;
+  }
+  & .project_desc {
+    @include padding_left_right_s;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow: hidden;
+    grid-area: 1/1/2/2;
+    justify-self: start;
+    align-self: start;
+    font-family: $font-family-sansp;
+    grid-row-gap: $con_title_p_margin_top;
+    & h1 {
+      line-height: 1;
+      //color: #330949;
+      //color: #3f04ff;
+      color: #300a44;
+      font-size: $con_title_h1_m;
+      //font-weight: 600;
+      font-weight: 700;
+    }
+    & p {
+      color: #54565a;
+      font-size: $con_p_font_size_sm;
+    }
+  }
+}
+
+.swiper_section_container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding-bottom: 20px;
+  & .s_btn {
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    top: 110px;
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background: #4716ed;
+    //background: #fff;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #f8f4f4;
+    //color: #4716ed;
+    &:hover {
+      background: #fff;
+      color: #4716ed;
+      transition: all 0.2s ease-in;
+    }
+  }
+
+  & .left {
+    left: 2px;
+  }
+
+  & .right {
+    right: 2px;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.swiper-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: 1fr;
+  justify-content: start;
+}
+.swiper-slide {
+  margin-right: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: calc(100vw - 40px); // slider wrapper gap && visible next slider
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider {
+  border-radius: 10px;
+  height: auto;
+  & .slider_image_con {
+    position: relative;
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      left: 0px;
+      width: 100%;
+    }
+
+    &::before {
+      background: linear-gradient(
+        -180deg,
+        rgba(48, 10, 68, 0) 37%,
+        rgba(48, 10, 68, 0.8) 80%,
+        #300a44 100%
+      );
+      top: 0%;
+      height: 80%;
+    }
+
+    &::after {
+      top: 80%;
+      height: 20%;
+      background: #300a44;
+    }
+
+    & img {
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    & a {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: auto;
+      left: 0px;
+      bottom: 0px;
+      padding: 20px 15px;
+      color: #fff;
+      z-index: 2;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: underline !important;
+
+      &:hover {
+        cursor: pointer !important;
+        text-decoration: none !important;
+      }
+    }
+  }
+
+  & .slider_desc_con {
+    overflow: hidden;
+    height: 220px;
+    background: #fff;
+    padding: 20px 15px;
+
+    & p {
+      color: #54565a;
+    }
+  }
+}
+
+// other
+.swiper-button-next,
+.swiper-button-prev {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.uxui-swiper-scrollbar {
+  position: absolute;
+  height: 5px;
+  width: calc((100vw - 40px));
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0px;
+  background: #d5d2d2;
+}
+.swiper-scrollbar-drag {
+}
+
+.swiper-button-disabled {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+@media only screen and (min-width: 320px) {
+  .swiper {
+  }
+  .swiper-wrapper {
+  }
+  .swiper-slide {
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: calc(100vw - 100px);
+    max-width: 320px; // slider wrapper gap && visible next slider
+    max-width: 295px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  section.uiux {
+    & .swiper_section_container {
+    }
+    & .project_desc {
+      & h1 {
+        font-size: $con_title_h1_m;
+        //font-weight: 600;
+        font-weight: 700;
+      }
+      & p {
+        font-size: $con_p_font_size_m;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  section.uiux {
+    & .swiper_section_container {
+      @include padding_left_right_m;
+    }
+    & .project_desc {
+      @include padding_left_right_m;
+      & h1 {
+        font-size: $con_title_h1_lg;
+        line-height: 1;
+        font-weight: 700;
+      }
+      & p {
+        font-size: $con_title_p_lg;
+      }
+    }
+  }
+
+  .swiper_section_container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    & .left {
+      left: 8px;
+    }
+
+    & .right {
+      right: 8px;
+    }
+  }
+
+  .uxui-swiper-scrollbar {
+    width: calc((100vw - 60px));
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  section.uiux {
+    & .swiper_section_container {
+      @include padding_left_right_l;
+    }
+    & .project_desc {
+      @include padding_left_right_l;
+    }
+  }
+  .uxui-swiper-scrollbar {
+    width: calc((100vw - 80px));
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  section.uiux {
+    position: relative;
+    width: 1250px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #e8e4d5;
+    overflow: visible !important;
+    & .swiper_section_container {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    & .project_desc {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      background: inherit;
+      height: 100%;
+      top: 0px;
+    }
+
+    &::after {
+      left: calc(100% - 1px);
+    }
+
+    &::before {
+      right: calc(100% - 1px);
+    }
+  }
+  .swiper_section_container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    & .left {
+      left: -0px;
+    }
+
+    & .right {
+      right: -0px;
+    }
+  }
+  .swiper-slide {
+    margin-right: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: calc(100vw - 100px);
+    max-width: 292px; // slider wrapper gap && visible next slider
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .uxui-swiper-scrollbar {
+    width: 100%;
+  }
+}

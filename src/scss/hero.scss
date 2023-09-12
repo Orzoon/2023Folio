@@ -78,6 +78,16 @@ section.hero {
         padding: 16px 25px 17px;
         box-shadow: 0 2px 4px rgba(33, 37, 41, 0.2);
 
+        & a {
+          height: 100%;
+          width: 100%;
+          color: #fff;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
         &:hover {
           cursor: pointer;
           font-weight: 500;

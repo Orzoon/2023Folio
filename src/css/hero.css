@@ -60,6 +60,19 @@ button.video_button {
   color: #54565a;
 }
 
+@media only screen and (min-height: 1000px) {
+  .fullContainer {
+    height: 1000px !important;
+    min-height: 1000px !important;
+    align-content: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-items: center !important;
+  }
+  .halfContainer {
+    min-height: 600px !important;
+  }
+}
 section.hero {
   background: #fff;
   font-size: 16px;
@@ -122,6 +135,15 @@ section.hero .hero_overlay .hero_button button {
   color: #fff;
   padding: 16px 25px 17px;
   box-shadow: 0 2px 4px rgba(33, 37, 41, 0.2);
+}
+section.hero .hero_overlay .hero_button button a {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  text-decoration: none;
+}
+section.hero .hero_overlay .hero_button button a:hover {
+  text-decoration: underline;
 }
 section.hero .hero_overlay .hero_button button:hover {
   cursor: pointer;

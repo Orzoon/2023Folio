@@ -1,0 +1,77 @@
+@import "_global.scss";
+section.linkBtnSection {
+  font-family: $font-family-sansp;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  min-height: 50vh;
+  overflow: hidden !important;
+  //background: #333;
+  background: #300a44;
+  position: relative;
+
+  & .link_btn_Wrapper {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 160px;
+    min-height: 56px;
+
+    & button.linkBtn_main {
+      padding: 18px 15px;
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      background: #333;
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      border-radius: 12px;
+      font-family: $font-family;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      //transition: all 0.2s ease-out;
+
+      & span.LB_ColorBG {
+        position: absolute;
+      }
+    }
+
+    & .LB_Btn_bg {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: #cbcaca;
+      border-radius: 12px;
+      transition: all 0.2s ease-out;
+    }
+  }
+}
+
+.link_btn_Wrapper:hover > .LB_Btn_bg {
+  top: 0px !important;
+  left: 0px !important;
+  transition: all 0.2s ease-out;
+}
+
+.link_btn_Wrapper:hover > .linkBtn_main {
+  background: #fff !important;
+  color: #333 !important;
+  font-weight: 500 !important;
+  transition: all 0.3s 0.1s ease-out;
+}
