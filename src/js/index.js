@@ -6,6 +6,7 @@ window.addEventListener("load", () => {
   let closeMenu = document.getElementById("closeMenu");
   let closeIcon = document.getElementById("closeIcon");
   const githubButton = document.getElementById("githubButton");
+  const loader = document.querySelector(".loader");
   let menuTimeline;
   let navOpen = false;
   const swiperUIUX = new Swiper(".swiper_uiux", {
@@ -35,6 +36,7 @@ window.addEventListener("load", () => {
   });
   /*--FUNCTIONS--*/
   function init() {
+    clearLoader();
     loadParticles();
     eventListeners();
     setTimeline();
@@ -134,6 +136,14 @@ window.addEventListener("load", () => {
         func.apply(this, [...arguments]);
       }, delay);
     };
+  }
+
+  /*--------clearing loader ------*/
+  function clearLoader() {
+    setTimeout(function () {
+      loader.style.display = "none";
+      document.body.style.overflowY = "scroll";
+    }, 1500);
   }
   /*---------------*/
   //--INIT--//
