@@ -60,17 +60,13 @@ button.video_button {
   color: #54565a;
 }
 
-@media only screen and (min-height: 1000px) {
+@media only screen and (min-height: 800px) {
   .fullContainer {
-    height: 1000px !important;
-    min-height: 1000px !important;
-    align-content: center !important;
-    align-items: center !important;
-    justify-content: center !important;
-    justify-items: center !important;
+    height: 800px !important;
+    min-height: 750px !important;
   }
   .halfContainer {
-    min-height: 600px !important;
+    min-height: 500px !important;
   }
 }
 section.canvas {

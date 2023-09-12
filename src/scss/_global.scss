@@ -129,19 +129,15 @@ button.video_button {
   padding-right: 30px;
 }
 
-// media query for containers --fullcontainer and halfcontainer
-@media only screen and (min-height: 1000px) {
+//media query for containers --fullcontainer and halfcontainer
+@media only screen and (min-height: 800px) {
   .fullContainer {
-    height: 1000px !important;
-    min-height: 1000px !important;
+    height: 800px !important;
+    min-height: 750px !important;
     //display: grid;
-    align-content: center !important;
-    align-items: center !important;
-    justify-content: center !important;
-    justify-items: center !important;
   }
 
   .halfContainer {
-    min-height: 600px !important;
+    min-height: 500px !important;
   }
 }
