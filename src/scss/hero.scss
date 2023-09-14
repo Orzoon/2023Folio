@@ -102,8 +102,110 @@ section.hero {
       }
     }
   }
-  & .hero_circle {
-    //width: ;
+  & .hero_circle_wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.8fr 1fr;
+    grid-row-gap: 22px;
+
+    & .hero_circle_con {
+      position: relative;
+      grid-area: 1/2/2/3;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      align-self: end;
+      justify-self: center;
+      //background: blue;
+
+      & .c_w {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        // width: 306px;
+        // height: 306px;
+        border-radius: 50%;
+        top: -80px;
+        left: -80px;
+        //top: 50%;
+        //left: 50%;
+        //background: green;
+        //transform: translate(-50%, -50%);
+        //transform-origin: center center;
+
+        // common
+        & .c_i {
+          border-radius: 50%;
+          position: absolute;
+
+          & .c {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+          }
+        }
+        // specific
+        & .ci_one {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 200px;
+          height: 200px;
+
+          & .c_one {
+            background: #3b109759;
+          }
+        }
+
+        & .ci_two {
+          height: 60px;
+          width: 60px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          & .c_two {
+            background: #3b1097ab;
+          }
+        }
+        & .ci_three {
+          height: 80px;
+          width: 80px;
+          top: 70%;
+          left: 50%;
+          & .c_three {
+            background: #3b109788;
+          }
+        }
+        & .ci_four {
+          height: 40px;
+          width: 40px;
+          top: 100%;
+          left: 70%;
+          & .c_four {
+            background: #ff5338ba;
+          }
+        }
+
+        & .ci_five {
+          height: 100px;
+          width: 100px;
+          & .c_five {
+            background: #16ed9771;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -171,6 +273,58 @@ section.hero {
         }
       }
     }
+
+    & .hero_circle_wrap {
+      position: absolute !important;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      top: 0px;
+      left: 0px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1.8fr 1fr;
+      grid-row-gap: 22px;
+
+      & .hero_circle_con {
+        position: relative;
+        grid-area: 1/2/2/3;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        align-self: end;
+        justify-self: center;
+
+        & .c_w {
+          width: 300px;
+          height: 300px;
+          top: -130px;
+          left: -130px;
+
+          & .ci_one {
+            width: 300px;
+            height: 300px;
+          }
+          & .ci_two {
+            height: 80px;
+            width: 80px;
+          }
+          & .ci_three {
+            height: 120px;
+            width: 120px;
+          }
+          & .ci_four {
+            height: 60px;
+            width: 60px;
+          }
+
+          & .ci_five {
+            height: 150px;
+            width: 150px;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -178,6 +332,19 @@ section.hero {
 }
 
 @media only screen and (min-width: 900px) {
+  section.hero {
+    .hero_circle_wrap {
+      & .hero_circle_con {
+        position: relative;
+        grid-area: 1/2/2/3;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        align-self: end;
+        justify-self: start;
+      }
+    }
+  }
 }
 @media only screen and (min-width: 1024px) {
 }
@@ -265,7 +432,7 @@ section.hero {
       grid-row-gap: 40px;
 
       & .hero_text {
-        width: 1250px;
+        width: 1350px;
         margin-left: auto;
         margin-right: auto;
         display: grid;
@@ -314,7 +481,7 @@ section.hero {
       }
 
       & .hero_button {
-        width: 1250px;
+        width: 1350px;
         margin-left: auto;
         margin-right: auto;
       }

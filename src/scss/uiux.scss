@@ -275,6 +275,12 @@ section.uiux {
   }
 }
 
+@media only screen and (min-width: 900px) {
+  section.uiux {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
 @media only screen and (min-width: 1200px) {
   section.uiux {
     & .swiper_section_container {
@@ -292,7 +298,7 @@ section.uiux {
 @media only screen and (min-width: 1400px) {
   section.uiux {
     position: relative;
-    width: 1250px;
+    width: 1350px;
     padding-left: 0px;
     padding-right: 0px;
     margin-left: auto;

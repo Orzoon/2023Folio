@@ -22,7 +22,9 @@ body {
   width: 100%;
   overflow-x: hidden !important;
   margin: 0;
-  //overflow: hidden;
+  overflow-y: hidden;
+  min-height: 600px;
+  height: 100vh !important;
 }
 
 main {
@@ -132,9 +134,8 @@ button.video_button {
 //media query for containers --fullcontainer and halfcontainer
 @media only screen and (min-height: 800px) {
   .fullContainer {
-    height: 800px !important;
-    min-height: 750px !important;
-    //display: grid;
+    height: 790px !important;
+    min-height: 780px !important;
   }
 
   .halfContainer {

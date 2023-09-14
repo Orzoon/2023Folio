@@ -7,8 +7,16 @@ window.addEventListener("load", () => {
   let closeIcon = document.getElementById("closeIcon");
   const githubButton = document.getElementById("githubButton");
   const loader = document.querySelector(".loader");
-  let menuTimeline;
+  const navListNode = document.querySelectorAll(".navList a");
+  const navListArray = Array.from(navListNode);
+  navListArray.pop();
+
   let navOpen = false;
+
+  //Timelines
+  let menuTimeline;
+  let landingTimeline;
+  // swiperJS
   const swiperUIUX = new Swiper(".swiper_uiux", {
     direction: "horizontal",
     slidesPerView: "auto",
@@ -89,8 +97,13 @@ window.addEventListener("load", () => {
       },
       false
     );
+
+    navListArray.forEach((navList) => {
+      navList.addEventListener("click", navClickHandler, false);
+    });
   }
   function setTimeline() {
+    // menuTimeline
     menuTimeline = gsap.timeline();
     menuTimeline.pause();
     menuTimeline
@@ -108,9 +121,99 @@ window.addEventListener("load", () => {
         },
         "<0.3"
       );
+
+    landingTimeline = gsap.timeline({});
+    landingTimeline.pause();
+    landingTimeline
+      .from("#particles-js", {
+        opacity: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: "linear",
+      })
+      //rotating
+      .addLabel("commonPoint", ">-0.5")
+      // circle rotation
+      .to(
+        ".cw_two",
+        {
+          rotation: "360",
+          duration: 15,
+          repeat: -1,
+          ease: "linear",
+        },
+        "<"
+      )
+      .to(
+        ".cw_three",
+        {
+          rotation: "360",
+          duration: 39,
+          repeat: -1,
+          ease: "linear",
+        },
+        "<"
+      )
+      .to(
+        ".cw_four",
+        {
+          rotation: "360",
+          duration: 40,
+          repeat: -1,
+          ease: "linear",
+        },
+        "<"
+      )
+      .to(
+        ".cw_five",
+        {
+          rotation: "360",
+          duration: 16,
+          repeat: -1,
+          ease: "linear",
+        },
+        "<"
+      )
+
+      // other
+      .from(
+        ".Gnav",
+        {
+          opacity: 0,
+          x: -10,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "ease-in",
+        },
+        "commonPoint"
+      )
+      .from(
+        ".GhText",
+        {
+          opacity: 0,
+          y: -15,
+          duration: 0.6,
+          stagger: 0.2,
+          ease: "ease-out",
+        },
+        "<commonPoint"
+      )
+      .from(
+        ".c",
+        {
+          width: "0%",
+          height: "0%",
+          duration: 0.6,
+          stagger: 0.2,
+          ease: "ease-out",
+        },
+        "commonPoint+=0.5"
+      );
   }
   function toggle(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     if (navOpen) {
       menuTimeline.play();
       window.addEventListener("click", outsideClick, false);
@@ -140,10 +243,20 @@ window.addEventListener("load", () => {
 
   /*--------clearing loader ------*/
   function clearLoader() {
+    document.body.style.overflowY = "auto !important";
     setTimeout(function () {
       loader.style.display = "none";
       document.body.style.overflowY = "scroll";
+      // run the landing animation
+      landingTimeline.play();
     }, 1500);
+  }
+
+  function navClickHandler(e) {
+    if (navOpen) {
+      navOpen = false;
+      toggle();
+    }
   }
   /*---------------*/
   //--INIT--//

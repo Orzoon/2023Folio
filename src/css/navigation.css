@@ -23,6 +23,9 @@ body {
   width: 100%;
   overflow-x: hidden !important;
   margin: 0;
+  overflow-y: hidden;
+  min-height: 600px;
+  height: 100vh !important;
 }
 
 main {
@@ -62,8 +65,8 @@ button.video_button {
 
 @media only screen and (min-height: 800px) {
   .fullContainer {
-    height: 800px !important;
-    min-height: 750px !important;
+    height: 790px !important;
+    min-height: 780px !important;
   }
   .halfContainer {
     min-height: 500px !important;
@@ -394,7 +397,7 @@ li.closeBtn span::after {
 }
 @media only screen and (min-width: 1400px) {
   nav.nav_navigation {
-    width: 1250px;
+    width: 1350px;
     margin-left: auto;
     margin-right: auto;
     grid-template-columns: auto 1fr;

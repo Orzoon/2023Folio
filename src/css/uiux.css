@@ -23,6 +23,9 @@ body {
   width: 100%;
   overflow-x: hidden !important;
   margin: 0;
+  overflow-y: hidden;
+  min-height: 600px;
+  height: 100vh !important;
 }
 
 main {
@@ -62,8 +65,8 @@ button.video_button {
 
 @media only screen and (min-height: 800px) {
   .fullContainer {
-    height: 800px !important;
-    min-height: 750px !important;
+    height: 790px !important;
+    min-height: 780px !important;
   }
   .halfContainer {
     min-height: 500px !important;
@@ -310,6 +313,12 @@ section.uiux .project_desc p {
     width: calc(100vw - 60px);
   }
 }
+@media only screen and (min-width: 900px) {
+  section.uiux {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
 @media only screen and (min-width: 1200px) {
   section.uiux .swiper_section_container {
     padding-left: 30px;
@@ -326,7 +335,7 @@ section.uiux .project_desc p {
 @media only screen and (min-width: 1400px) {
   section.uiux {
     position: relative;
-    width: 1250px;
+    width: 1350px;
     padding-left: 0px;
     padding-right: 0px;
     margin-left: auto;
