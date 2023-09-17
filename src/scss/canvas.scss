@@ -269,6 +269,12 @@ section.canvas {
   }
 }
 
+@media only screen and (min-width: 900px) {
+  section.canvas {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}
 @media only screen and (min-width: 1200px) {
   section.canvas {
     & .swiper_section_container {

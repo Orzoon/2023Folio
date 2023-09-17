@@ -63,6 +63,25 @@ button.video_button {
   color: #54565a;
 }
 
+.swiper_scroll_con {
+  overflow-x: hidden;
+  opacity: 0;
+}
+
+.swiper_scroll {
+  left: 0%;
+  top: 0%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #e8e4d5;
+  z-index: 99;
+}
+
+.canvas_swiper_scroll {
+  background: #f6f4ee;
+}
+
 @media only screen and (min-height: 800px) {
   .fullContainer {
     height: 790px !important;
@@ -99,11 +118,10 @@ section.linkBtnSection .link_btn_Wrapper button.linkBtn_main {
   padding: 18px 15px;
   position: absolute;
   z-index: 2;
-  top: 50%;
-  left: 50%;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
-  transform: translate(-50%, -50%);
   background: #333;
   font-size: 16px;
   font-weight: 400;
@@ -128,6 +146,7 @@ section.linkBtnSection .link_btn_Wrapper .LB_Btn_bg {
   background: #cbcaca;
   border-radius: 12px;
   transition: all 0.2s ease-out;
+  opacity: 0;
 }
 
 .link_btn_Wrapper:hover > .LB_Btn_bg {
