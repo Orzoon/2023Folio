@@ -118,6 +118,8 @@ section.hero .hero_overlay {
   grid-row-gap: 22px;
 }
 section.hero .hero_overlay .hero_text {
+  width: 100%;
+  overflow: hidden;
   position: relative;
   justify-self: start;
   align-self: end;
@@ -137,10 +139,31 @@ section.hero .hero_overlay .hero_text .common_hero_text .h_con h1 {
   font-family: "Rubik Mono One", sans-serif;
   font-size: 36px;
   line-height: 1.1;
-  overflow-wrap: break-word;
 }
 section.hero .hero_overlay .hero_text .orzon .h_con h1 {
   color: #ff5438;
+}
+section.hero .hero_overlay .hero_text .heroTitleContainer {
+  position: relative;
+  min-height: 120px;
+  height: auto;
+  display: grid;
+}
+section.hero .hero_overlay .hero_text .heroTitleContainer .heroTitleWrapper {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+section.hero .hero_overlay .hero_text .heroTitleContainer .heroTitleWrapper p {
+  position: absolute;
+  min-height: auto;
+  color: #300a44;
+  font-weight: 900;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 36px;
+  margin: 0;
+  line-height: 1.1;
+  word-spacing: normal;
 }
 section.hero .hero_overlay .hero_button button {
   outline: none;
@@ -262,6 +285,35 @@ section.hero .hero_circle_wrap .hero_circle_con .c_w .ci_five .c_five {
   background: rgba(22, 237, 151, 0.4431372549);
 }
 
+.web,
+.developer {
+  display: none !important;
+}
+
+@media only screen and (min-width: 260px) {
+  section.hero .hero_overlay .hero_text .heroTitleContainer {
+    position: relative;
+    min-height: 80px;
+    height: auto;
+    display: grid;
+  }
+  section.hero .hero_overlay .hero_text .heroTitleContainer .heroTitleWrapper p {
+    position: absolute;
+    min-height: auto;
+    color: #300a44;
+    font-weight: 900;
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: 36px;
+    margin: 0;
+    line-height: 1.1;
+    word-spacing: normal;
+  }
+}
+@media only screen and (min-width: 300px) {
+  section.hero .hero_overlay .hero_text .heroTitleContainer .heroTitleWrapper p {
+    word-spacing: 500px;
+  }
+}
 @media only screen and (min-width: 640px) {
   section.hero {
     background: #fff;
@@ -284,10 +336,6 @@ section.hero .hero_circle_wrap .hero_circle_con .c_w .ci_five .c_five {
     grid-row-gap: 40px;
   }
   section.hero .hero_overlay .hero_text {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-auto-rows: auto;
-    grid-template-areas: "hi hi" "im im" "arjun arjun" "web developer";
     grid-column-gap: 18px;
   }
   section.hero .hero_overlay .hero_text .common_hero_text {
@@ -300,20 +348,23 @@ section.hero .hero_circle_wrap .hero_circle_con .c_w .ci_five .c_five {
     line-height: 1.1;
     overflow-wrap: break-word;
   }
-  section.hero .hero_overlay .hero_text .hi {
-    grid-area: 1/1/2/3;
+  section.hero .hero_overlay .hero_text .heroTitleContainer {
+    position: relative;
+    min-height: 110px;
   }
-  section.hero .hero_overlay .hero_text .im {
-    grid-area: 2/1/3/3;
+  section.hero .hero_overlay .hero_text .heroTitleContainer .heroTitleWrapper {
+    position: absolute;
   }
-  section.hero .hero_overlay .hero_text .orzon {
-    grid-area: 3/1/4/3;
-  }
-  section.hero .hero_overlay .hero_text .web {
-    grid-area: web;
-  }
-  section.hero .hero_overlay .hero_text .developer {
-    grid-area: developer;
+  section.hero .hero_overlay .hero_text .heroTitleContainer .heroTitleWrapper p {
+    position: absolute;
+    min-height: auto;
+    color: #300a44;
+    font-weight: 900;
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: 50px;
+    margin: 0;
+    line-height: 1.1;
+    word-spacing: 500px;
   }
   section.hero .hero_circle_wrap {
     position: absolute !important;
@@ -363,6 +414,14 @@ section.hero .hero_circle_wrap .hero_circle_con .c_w .ci_five .c_five {
     width: 150px;
   }
 }
+@media only screen and (min-width: 700px) {
+  section.hero .hero_overlay .hero_text .heroTitleContainer {
+    min-height: 55px;
+  }
+  section.hero .hero_overlay .hero_text .heroTitleContainer .heroTitleWrapper p {
+    word-spacing: normal !important;
+  }
+}
 @media only screen and (min-width: 900px) {
   section.hero .hero_circle_wrap .hero_circle_con {
     position: relative;
@@ -397,10 +456,8 @@ section.hero .hero_circle_wrap .hero_circle_con .c_w .ci_five .c_five {
   }
   section.hero .hero_overlay .hero_text {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
     grid-auto-rows: auto;
-    grid-template-areas: "hi hi" "im im" "arjun arjun" "web developer";
-    grid-column-gap: 18px;
   }
   section.hero .hero_overlay .hero_text .common_hero_text {
     display: flex;
@@ -411,21 +468,6 @@ section.hero .hero_circle_wrap .hero_circle_con .c_w .ci_five .c_five {
     font-size: 50px;
     line-height: 1.1;
     overflow-wrap: break-word;
-  }
-  section.hero .hero_overlay .hero_text .hi {
-    grid-area: 1/1/2/3;
-  }
-  section.hero .hero_overlay .hero_text .im {
-    grid-area: 2/1/3/3;
-  }
-  section.hero .hero_overlay .hero_text .orzon {
-    grid-area: 3/1/4/3;
-  }
-  section.hero .hero_overlay .hero_text .web {
-    grid-area: web;
-  }
-  section.hero .hero_overlay .hero_text .developer {
-    grid-area: developer;
   }
 }
 @media only screen and (min-width: 1400px) {
@@ -448,11 +490,8 @@ section.hero .hero_circle_wrap .hero_circle_con .c_w .ci_five .c_five {
     width: 1350px;
     margin-left: auto;
     margin-right: auto;
-    display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
     grid-auto-rows: auto;
-    grid-template-areas: "hi hi" "im im" "arjun arjun" "web developer";
-    grid-column-gap: 26px;
   }
   section.hero .hero_overlay .hero_text .common_hero_text {
     display: flex;
@@ -460,25 +499,16 @@ section.hero .hero_circle_wrap .hero_circle_con .c_w .ci_five .c_five {
     gap: 1px;
   }
   section.hero .hero_overlay .hero_text .common_hero_text .h_con h1 {
-    font-size: 50px;
     line-height: 1.1;
     overflow-wrap: break-word;
     font-size: 56px;
   }
-  section.hero .hero_overlay .hero_text .hi {
-    grid-area: 1/1/2/3;
+  section.hero .hero_overlay .hero_text .heroTitleContainer {
+    position: relative;
+    min-height: 60px;
   }
-  section.hero .hero_overlay .hero_text .im {
-    grid-area: 2/1/3/3;
-  }
-  section.hero .hero_overlay .hero_text .orzon {
-    grid-area: 3/1/4/3;
-  }
-  section.hero .hero_overlay .hero_text .web {
-    grid-area: web;
-  }
-  section.hero .hero_overlay .hero_text .developer {
-    grid-area: developer;
+  section.hero .hero_overlay .hero_text .heroTitleContainer .heroTitleWrapper p {
+    font-size: 56px;
   }
   section.hero .hero_overlay .hero_button {
     width: 1350px;

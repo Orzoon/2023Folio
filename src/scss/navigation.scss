@@ -302,7 +302,7 @@ li.closeBtn {
         display: grid;
         justify-items: center;
         align-items: center;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         grid-template-rows: auto;
         & li.closeBtn {
           display: none;

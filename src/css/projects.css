@@ -118,7 +118,6 @@ section.projects .project_image_con {
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
-  background: #007d60;
 }
 section.projects .project_image_con .project_image {
   position: relative;

@@ -11,12 +11,24 @@ window.addEventListener("load", () => {
   const navListNode = document.querySelectorAll(".navList a");
   const navListArray = Array.from(navListNode);
   navListArray.pop();
-
   let navOpen = false;
 
+  // cert
+  const certBtns = document.querySelectorAll(".certVerifyButton");
+  const verifyCertLinkData = [
+    "https://www.credly.com/badges/9a18d0e3-51a1-4d20-922e-b3474c0ce489/public_url",
+  ];
+  // titleArray
+  const titles = gsap.utils.toArray(".title");
+  splt({});
   //Timelines
   let menuTimeline;
   let landingTimeline;
+  let titleTimeline;
+  let heroTextMainTimeline; //addition of landing and titleTimeline;
+
+  //*******CERT--DATA**********//
+
   // swiperJS
   const swiperUIUX = new Swiper(".swiper_uiux", {
     direction: "horizontal",
@@ -43,6 +55,22 @@ window.addEventListener("load", () => {
       hide: false,
     },
   });
+
+  // added cert swiper
+  const swiperCert = new Swiper(".swiper_cert", {
+    slideClass: "cert-slide",
+    direction: "horizontal",
+    slidesPerView: "auto",
+    navigation: {
+      nextEl: ".cert_btn_right ",
+      prevEl: ".cert_btn_left",
+    },
+    scrollbar: {
+      el: ".cert-swiper-scrollbar",
+      hide: false,
+    },
+  });
+  // loop
   /*--FUNCTIONS--*/
   function init() {
     clearLoader();
@@ -102,6 +130,13 @@ window.addEventListener("load", () => {
     navListArray.forEach((navList) => {
       navList.addEventListener("click", navClickHandler, false);
     });
+
+    //certBtn
+    certBtns.forEach((certBtn, index) => {
+      certBtn.addEventListener("click", () => {
+        window.open(verifyCertLinkData[index], "_blank");
+      });
+    });
   }
   function setTimeline() {
     // menuTimeline
@@ -123,8 +158,41 @@ window.addEventListener("load", () => {
         "<0.3"
       );
 
+    // Title Timeline
+    // Title Timeline
+    titleTimeline = gsap.timeline({ repeat: -1 });
+    //titleTimeline.pause();
+
+    titles.forEach((title) => {
+      let q = gsap.utils.selector(title);
+      //let letters = q(".char");
+      titleTimeline
+        .from(
+          q(".char"),
+          {
+            opacity: 0,
+            y: 30,
+            rotateX: -90,
+            stagger: 0.04,
+          },
+          "<"
+        )
+        .to(
+          q(".char"),
+          {
+            opacity: 0,
+            y: -30,
+            rotateX: 90,
+            stagger: 0.04,
+            delay: 1,
+          },
+          "<1"
+        );
+    });
+
+    // landing timeline
     landingTimeline = gsap.timeline({});
-    landingTimeline.pause();
+    //landingTimeline.pause();
     landingTimeline
       .from("#particles-js", {
         opacity: 0,
@@ -194,7 +262,9 @@ window.addEventListener("load", () => {
           opacity: 0,
           y: -15,
           duration: 0.6,
-          stagger: 0.2,
+          stagger: function (i) {
+            return i * 0.2;
+          },
           ease: "ease-out",
         },
         "<commonPoint"
@@ -210,6 +280,11 @@ window.addEventListener("load", () => {
         },
         "commonPoint+=0.5"
       );
+
+    // heroTextMainTimeline
+    heroTextMainTimeline = gsap.timeline({});
+    heroTextMainTimeline.pause();
+    heroTextMainTimeline.add(landingTimeline, 0).add(titleTimeline, "<+1.6");
   }
   function toggle(e) {
     if (e) {
@@ -250,6 +325,7 @@ window.addEventListener("load", () => {
       document.body.style.overflowY = "scroll";
       // run the landing animation
       landingTimeline.play();
+      heroTextMainTimeline.play();
     }, 1000);
   }
 
@@ -272,11 +348,15 @@ window.addEventListener("load", () => {
 
   // slider
   const sliders = gsap.utils.toArray(".slider");
+  //certSlider
+  const certSliders = gsap.utils.toArray(".cert-slide");
   // DescsTitle and descs' P -- loop to scrollTrigger
   const uiuxSwiperBtnRight = document.querySelector(".right ");
   const canvasSwiperBtnRight = document.querySelector(".canvas_btn_right ");
+  const certSwiperBtnRight = document.querySelector(".cert_btn_right");
   // scrollBar
   const scrollBars = gsap.utils.toArray(".swiper_scroll_con");
+  const scrollMarks = gsap.utils.toArray(".scroll_slider_mark");
 
   scrollHeading.forEach((element) => {
     __commonTextScrollTrigger(element);
@@ -295,16 +375,25 @@ window.addEventListener("load", () => {
     __swiperCards(el, index);
   });
 
+  //scroll_slider_mark.mark1
+  //cert sliders
+  certSliders.forEach((el, index) => {
+    __certCards(el, index);
+  });
+
   // btn-- scroll
+  // later fix every button to mark1 mark 2 or mark 3;;;to scrollmarks
   __swiperBtn(uiuxSwiperBtnRight, sliders[0]);
   __swiperBtn(canvasSwiperBtnRight, sliders[4]);
+  __swiperBtn(certSwiperBtnRight, certSliders[0]);
+  //__swiperBtn(certSwiperBtnRight, )
   // scrollBars
-  scrollBars.forEach((scrollElem, index) => {
-    const triggerElem = index === 0 ? sliders[0] : sliders[4];
-    const q = gsap.utils.selector(scrollElem);
+  scrollBars.forEach((scrollBar, index) => {
+    const triggerElem = scrollMarks[index];
+    const q = gsap.utils.selector(scrollBar);
     const t = gsap.timeline();
     t.pause();
-    t.to(scrollElem, {
+    t.to(scrollBar, {
       opacity: 1,
       duration: 0.2,
       delay: 1,
@@ -314,7 +403,7 @@ window.addEventListener("load", () => {
       {
         x: "100%",
         duration: 1.5,
-        ease: "linear",
+        ease: "ease-in",
       },
       "<"
     );
@@ -564,6 +653,121 @@ window.addEventListener("load", () => {
     });
   }
 
+  function __certCards(element, index) {
+    const q = gsap.utils.selector(element);
+    const t = gsap.timeline();
+    t.pause();
+    // t.from("swiper-wrapper", {
+    //   y: -50,
+    //   opacity: 0,
+    //   duration: 1,
+    //   ease: "ease-out",
+    // })
+
+    t.from(element, {
+      y: -40,
+      opacity: 0,
+      duration: 1,
+      ease: "ease-out",
+      delay: 0.1 * index,
+    })
+      .from(
+        q("a"),
+        {
+          y: -25,
+          opacity: 0,
+          duration: 1,
+          ease: "ease-out",
+        },
+        "<0.3"
+      )
+      .from(
+        q(".badge_container"),
+        {
+          y: -20,
+          opacity: 0,
+          duration: 0.8,
+          ease: "ease-out",
+        },
+        "<0.5"
+      )
+      .from(
+        q(".cert-information li p "),
+        {
+          y: -20,
+          opacity: 0,
+          duration: 0.8,
+          ease: "ease-out",
+        },
+        // "<0.5"
+        "<"
+      )
+      .from(
+        q(".certVerifyButton"),
+        {
+          y: -20,
+          opacity: 0,
+          duration: 0.8,
+          ease: "ease-out",
+        },
+        // "<0.2"
+        "<0"
+      )
+      .from(
+        q(".cert-vender-logo_con"),
+        {
+          y: -50,
+          x: -50,
+          opacity: 0,
+          duration: 0.8,
+          ease: "ease-out",
+        },
+        "<-0.8"
+      );
+
+    ScrollTrigger.create({
+      trigger: element,
+      start: "top 80%",
+      onEnter: () => {
+        t.play();
+      },
+    });
+  }
+
+  // aboutme Image con scrollTrigger
+  function __aboutmeImageCon() {
+    const t = gsap.timeline();
+    t.pause();
+    t.from(".mid-line-plate", {
+      x: "-100%",
+      y: "-100%",
+      opacity: 0,
+      duration: 1,
+      delay: 0.6,
+      ease: "ease-out",
+    }).from(
+      ".photo-plate",
+      {
+        y: -30,
+        opacity: 0,
+        duration: 1,
+        ease: "ease-out",
+      },
+      "<0.3"
+    );
+
+    ScrollTrigger.create({
+      trigger: ".aboutme_image_con",
+      start: "top 80%",
+      onEnter: () => {
+        t.play();
+      },
+    });
+  }
+
+  __aboutmeImageCon();
+
+  //added cert card animations
   /*---------------*/
   //--INIT--//
   init();

@@ -28,6 +28,8 @@ section.hero {
     grid-row-gap: 22px;
 
     & .hero_text {
+      width: 100%;
+      overflow: hidden;
       position: relative;
       justify-self: start;
       align-self: end;
@@ -50,15 +52,51 @@ section.hero {
             font-size: 36px;
             //text-transform: uppercase;
             line-height: 1.1;
-            overflow-wrap: break-word;
           }
         }
       }
-
       & .orzon {
         & .h_con {
           & h1 {
             color: #ff5438;
+          }
+        }
+      }
+
+      // Common hero text font -size replicated //
+      & .heroTitleContainer {
+        position: relative;
+        min-height: 120px;
+        height: auto;
+        display: grid;
+        // justify-items: center;
+        // align-items: center;
+        & .heroTitleWrapper {
+          width: 100%;
+          height: auto;
+          //overflow: hidden;
+          position: absolute;
+          & p {
+            position: absolute;
+            min-height: auto;
+            //padding-top: 5px;
+            color: $color;
+            font-weight: 900;
+            //font-family: $font-family-sansp;
+            //font-family: monospace;
+            font-family: "Rubik Mono One", sans-serif;
+            //font-family: "Geologica", sans-serif;
+            font-size: 36px;
+            //text-transform: uppercase;
+            //line-height: 1.1;
+            //overflow-wrap: ;
+            margin: 0;
+            line-height: 1.1;
+            //line-height: 0;
+            //line-height: 0;
+            word-spacing: normal;
+            & span {
+            }
           }
         }
       }
@@ -209,6 +247,84 @@ section.hero {
   }
 }
 
+.web,
+.developer {
+  display: none !important;
+}
+
+//HEROTITLECONTAINER//
+
+// SIZE FOR HERO TEXT WORD SPACING ONLY
+@media only screen and (min-width: 260px) {
+  //--> height Fix only
+  section.hero {
+    & .hero_overlay {
+      & .hero_text {
+        // Common hero text font -size replicated //
+        & .heroTitleContainer {
+          position: relative;
+          min-height: 80px;
+          height: auto;
+          display: grid;
+          & .heroTitleWrapper {
+            & p {
+              position: absolute;
+              min-height: auto;
+              color: $color;
+              font-weight: 900;
+              //font-family: $font-family-sansp;
+              //font-family: monospace;
+              font-family: "Rubik Mono One", sans-serif;
+              //font-family: "Geologica", sans-serif;
+              font-size: 36px;
+              margin: 0;
+              line-height: 1.1;
+              word-spacing: normal;
+              & span {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 300px) {
+  section.hero {
+    & .hero_overlay {
+      & .hero_text {
+        // Common hero text font -size replicated //
+        & .heroTitleContainer {
+          & .heroTitleWrapper {
+            & p {
+              word-spacing: 500px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// @media only screen and (min-width: 508px) {
+//   // word spacing zero and height fix
+//   section.hero {
+//     & .hero_overlay {
+//       & .hero_text {
+//         // Common hero text font -size replicated //
+//         & .heroTitleContainer {
+//           min-height: 40px;
+//           & .heroTitleWrapper {
+//             & p {
+//               word-spacing: normal !important;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 @media only screen and (min-width: 640px) {
   section.hero {
     background: #fff;
@@ -229,14 +345,14 @@ section.hero {
       grid-row-gap: 40px;
 
       & .hero_text {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-auto-rows: auto;
-        grid-template-areas:
-          "hi hi"
-          "im im"
-          "arjun arjun"
-          "web developer";
+        // display: grid;
+        // grid-template-columns: auto 1fr;
+        // grid-auto-rows: auto;
+        // grid-template-areas:
+        //   "hi hi"
+        //   "im im"
+        //   "arjun arjun"
+        //   "web developer";
         grid-column-gap: 18px;
         & .common_hero_text {
           display: flex;
@@ -252,24 +368,53 @@ section.hero {
           }
         }
 
-        & .hi {
-          grid-area: 1/1/2/3;
-        }
+        // & .hi {
+        //   grid-area: 1/1/2/3;
+        // }
 
-        & .im {
-          grid-area: 2/1/3/3;
-        }
+        // & .im {
+        //   grid-area: 2/1/3/3;
+        // }
 
-        & .orzon {
-          grid-area: 3/1/4/3;
-        }
+        // & .orzon {
+        //   grid-area: 3/1/4/3;
+        // }
 
-        & .web {
-          grid-area: web;
-        }
+        // & .web {
+        //   grid-area: web;
+        // }
 
-        & .developer {
-          grid-area: developer;
+        // & .developer {
+        //   grid-area: developer;
+        // }
+
+        // Common hero text font -size replicated //
+        & .heroTitleContainer {
+          position: relative;
+          //min-height: 55px;
+          min-height: 110px;
+          & .heroTitleWrapper {
+            position: absolute;
+            & p {
+              position: absolute;
+              min-height: auto;
+              color: $color;
+              font-weight: 900;
+              //font-family: $font-family-sansp;
+              //font-family: monospace;
+              font-family: "Rubik Mono One", sans-serif;
+              //font-family: "Geologica", sans-serif;
+              font-size: 50px;
+              //text-transform: uppercase;
+              //line-height: 1.1;
+              //overflow-wrap: ;
+              margin: 0;
+              line-height: 1.1;
+              //line-height: 0;
+              //line-height: 0;
+              word-spacing: 500px;
+            }
+          }
         }
       }
     }
@@ -328,6 +473,23 @@ section.hero {
   }
 }
 
+@media only screen and (min-width: 700px) {
+  section.hero {
+    & .hero_overlay {
+      & .hero_text {
+        // Common hero text font -size replicated //
+        & .heroTitleContainer {
+          min-height: 55px;
+          & .heroTitleWrapper {
+            & p {
+              word-spacing: normal !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media only screen and (min-width: 768px) {
 }
 
@@ -370,14 +532,8 @@ section.hero {
 
       & .hero_text {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr;
         grid-auto-rows: auto;
-        grid-template-areas:
-          "hi hi"
-          "im im"
-          "arjun arjun"
-          "web developer";
-        grid-column-gap: 18px;
         & .common_hero_text {
           display: flex;
           flex-wrap: wrap;
@@ -390,26 +546,6 @@ section.hero {
               overflow-wrap: break-word;
             }
           }
-        }
-
-        & .hi {
-          grid-area: 1/1/2/3;
-        }
-
-        & .im {
-          grid-area: 2/1/3/3;
-        }
-
-        & .orzon {
-          grid-area: 3/1/4/3;
-        }
-
-        & .web {
-          grid-area: web;
-        }
-
-        & .developer {
-          grid-area: developer;
         }
       }
     }
@@ -435,22 +571,21 @@ section.hero {
         width: 1350px;
         margin-left: auto;
         margin-right: auto;
-        display: grid;
-        grid-template-columns: auto 1fr;
+        // display: grid;
+        grid-template-columns: 1fr;
         grid-auto-rows: auto;
-        grid-template-areas:
-          "hi hi"
-          "im im"
-          "arjun arjun"
-          "web developer";
-        grid-column-gap: 26px;
+        // grid-template-areas:
+        //   "hi hi"
+        //   "im im"
+        //   "arjun arjun"
+        //   "web developer";
+        // grid-column-gap: 26px;
         & .common_hero_text {
           display: flex;
           flex-wrap: wrap;
           gap: 1px;
           & .h_con {
             & h1 {
-              font-size: 50px;
               //text-transform: uppercase;
               line-height: 1.1;
               overflow-wrap: break-word;
@@ -459,24 +594,34 @@ section.hero {
           }
         }
 
-        & .hi {
-          grid-area: 1/1/2/3;
-        }
+        // & .hi {
+        //   grid-area: 1/1/2/3;
+        // }
 
-        & .im {
-          grid-area: 2/1/3/3;
-        }
+        // & .im {
+        //   grid-area: 2/1/3/3;
+        // }
 
-        & .orzon {
-          grid-area: 3/1/4/3;
-        }
+        // & .orzon {
+        //   grid-area: 3/1/4/3;
+        // }
 
-        & .web {
-          grid-area: web;
-        }
+        // & .web {
+        //   grid-area: web;
+        // }
 
-        & .developer {
-          grid-area: developer;
+        // & .developer {
+        //   grid-area: developer;
+        // }
+
+        & .heroTitleContainer {
+          position: relative;
+          min-height: 60px;
+          & .heroTitleWrapper {
+            & p {
+              font-size: 56px;
+            }
+          }
         }
       }
 

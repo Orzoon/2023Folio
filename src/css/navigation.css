@@ -365,7 +365,7 @@ li.closeBtn span::after {
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
   }
   nav.nav_navigation .navigation_links_list_con ul.navigation_links_list li.closeBtn {

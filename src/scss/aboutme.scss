@@ -1,0 +1,323 @@
+@import "_global.scss";
+section.aboutme {
+  @include padding_left_right_s;
+  font-family: $font-family-sansp;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: auto !important;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto auto;
+  background: #f6f4ee;
+  background: #360ebb;
+  background: #2f0ba5;
+  align-content: start;
+  grid-row-gap: 30px;
+
+  & .aboutme_desc {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow: hidden;
+    grid-area: 1/1/2/2;
+    justify-self: start;
+    align-self: start;
+    font-family: $font-family-sansp;
+    grid-row-gap: $con_title_p_margin_top;
+    & h1 {
+      line-height: 1;
+      //color: #330949;
+      //color: #3f04ff;
+      color: #300a44;
+      color: #fff;
+      font-size: $con_title_h1_m;
+      //font-weight: 600;
+      font-weight: 700;
+    }
+    & p {
+      color: #54565a;
+      color: #fff;
+      font-size: $con_p_font_size_sm;
+
+      & .abt-emp-text {
+        font-weight: 700;
+
+        & .th {
+          color: #4584b6;
+        }
+
+        & .on {
+          color: #646464;
+        }
+      }
+
+      & .javascript {
+        color: yellow;
+      }
+
+      & .python {
+        color: #ffde57;
+      }
+
+      & .networking {
+        color: #00bceb;
+      }
+    }
+  }
+
+  // photo and animation container
+  & .aboutme_image_con {
+    //background: #fff;
+    //grid-area: 2/1/3/2;
+    display: grid;
+    justify-self: start;
+    align-self: center;
+    //width: 275px;
+    width: 100%;
+    //max-width: 380px;
+    // border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    height: 360px;
+  }
+}
+
+// aboutme_Image_con Separate
+.aboutme_image_con {
+  overflow: hidden;
+  position: relative;
+  max-width: 380px;
+  & .plain-plate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  & .mid-line-plate {
+    position: absolute;
+    z-index: 2;
+    top: -50%;
+    left: -50%;
+    top: 0%;
+    left: 0%;
+    width: 60%;
+    height: 60%;
+    background: #c0bebe;
+  }
+
+  & .box-plate {
+    position: absolute;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-auto-rows: auto;
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    margin-top: 0px;
+    margin-left: 0px;
+    & .box {
+      height: 50px;
+      width: 50px;
+      background: #2f0ba5;
+      display: inline-block;
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+
+  & .photo-plate {
+    overflow: hidden;
+    position: absolute;
+    z-index: 9;
+    height: 200px;
+    width: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 1px 1px 0px #5b3ac5;
+
+    & .photo-overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 5;
+
+      & .photoName {
+        position: absolute;
+        top: 65%;
+        left: 0%;
+        height: 100px;
+        width: 200%;
+        background: #2f0ba5;
+        display: grid;
+        justify-content: center;
+        align-items: start;
+        padding-top: 5px;
+        color: #afa0a0;
+        color: #c6bef5d2;
+        font-size: 8px;
+        transform: rotate(-45deg);
+        transform-origin: center center;
+
+        & p {
+          padding-right: 25px;
+          display: none;
+        }
+      }
+    }
+    & .photo-plate-effect {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      z-index: 2;
+      background: radial-gradient(#ddd5d500, #2703f1d2);
+    }
+    & img {
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) {
+}
+
+@media only screen and (min-width: 500px) {
+  section.aboutme {
+    & .aboutme_desc {
+      & h1 {
+        font-size: $con_title_h1_m;
+        //font-weight: 600;
+        font-weight: 700;
+      }
+      & p {
+        font-size: $con_p_font_size_m;
+      }
+    }
+  }
+
+  // applied styles outside outside of section con
+}
+
+@media only screen and (min-width: 640px) {
+  section.aboutme {
+    @include padding_left_right_m;
+    & .swiper_section_container {
+      @include padding_left_right_m;
+    }
+    & .aboutme_desc {
+      & h1 {
+        font-size: $con_title_h1_lg;
+        line-height: 1;
+        font-weight: 700;
+      }
+      & p {
+        font-size: $con_title_p_lg;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  section.aboutme {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 120px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    grid-row-gap: 0px;
+    grid-column-gap: 30px;
+  }
+
+  // aboutme_Image_con Separate
+  .aboutme_image_con {
+    overflow: hidden;
+    position: relative;
+    //max-width: 440px !important;
+    max-width: 440px !important;
+    width: 440px !important;
+    height: 400px !important;
+    grid-area: 1 / 2 / 2 / 3 !important;
+
+    display: grid;
+    justify-self: end !important;
+
+    & .box-plate {
+      margin-top: 0px;
+      margin-left: 0px;
+      & .box {
+        height: 70px;
+        width: 70px;
+      }
+    }
+
+    & .photo-plate {
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  section.aboutme {
+    @include padding_left_right_l;
+    display: grid;
+    grid-column-gap: 50px;
+    & .aboutme_section_container {
+      @include padding_left_right_l;
+    }
+    & .aboutme_desc {
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  section.aboutme {
+    position: relative;
+    width: 1350px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible !important;
+    display: grid;
+    grid-column-gap: 100px;
+    & .swiper_section_container {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    & .aboutme_desc {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      background: inherit;
+      height: 100%;
+      top: 0px;
+    }
+
+    &::after {
+      left: calc(100% - 1px);
+    }
+
+    &::before {
+      right: calc(100% - 1px);
+    }
+  }
+}

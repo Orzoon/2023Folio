@@ -1,6 +1,7 @@
 @import "_global.scss";
 
 section.loader {
+  //display: none !important; //added
   position: fixed;
   height: 100vh;
   width: 100vw;
